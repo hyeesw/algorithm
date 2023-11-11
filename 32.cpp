@@ -25,13 +25,10 @@ int lcs(int m, int n){
 
 int main(void){
 	int testcase; cin >> testcase;
-	// int testcase = 1;
 	for(int tc=0; tc<testcase; tc++){
 		cin >> x >> y;
-        // x = "abcb"; y = "aceb";
         int xlen = x.length();
         int ylen = y.length();
-		// xlen = 4; ylen = 4;
 
         //memo 초기화
         for(int i=0; i<xlen; i++){
@@ -41,13 +38,22 @@ int main(void){
         }
 
 		lcs(xlen-1, ylen-1);
-        // for(int i=0; i<xlen; i++){
-        //     for(int j=0; j<ylen; j++){
-        //         cout << memo[i][j] << " ";
-        //     }
-		// 	cout << endl;
-        // }
 		cout << memo[xlen-1][ylen-1] << endl;
 	}
 	return 0;
 }
+
+/*
+- input -
+4
+abcbdab bdcaba
+abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz
+a b
+abcdefghijklmnopqrstuvwxyz zyxwvutsrqponmlkjihgfedcba
+
+- output -
+4
+26
+0
+1
+*/

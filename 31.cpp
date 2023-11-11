@@ -21,3 +21,16 @@ int main(void){
 	}
 	return 0;
 }
+
+/*
+- input -
+3
+abcbdab bdcaba
+a a
+abcd zyxw
+
+
+4
+1
+0
+*/

@@ -12,9 +12,12 @@ int dfs(vector<vector<int>>& v, stack<int> stack, bool visit[]){
         int curN = stack.top(); stack.pop();
         int nums = v[curN][0]; //인접노드 수
         for(int i=1; i<=nums; i++){
-            stack.push(v[curN][i]); //stack에 인접 노드 추가
-            visit[i] = true; //방문 표시
-            subNodes++;
+            int adjN = v[curN][i];
+            if(!visit[adjN]){ //방문 안 한 애
+                stack.push(adjN); //stack에 인접 노드 추가
+                subNodes++;
+                visit[adjN] = true; //미래에 방문할 것 방문 표시
+            }
         }
     }
     return subNodes;
@@ -37,6 +40,21 @@ int main (void){
             }
             v.push_back(v2);
         }
+    // int testcase = 1;
+    // for(int tc=0; tc<testcase; tc++){
+    //     vector<vector<int> > v = {
+    //         {},
+    //         {1, 3},
+    //         {1, 3},
+    //         {3, 1, 2, 7},
+    //         {0},
+    //         {1, 6},
+    //         {1, 5},
+    //         {3, 3, 8, 9},
+    //         {2, 7, 9},
+    //         {2, 7, 8}
+    //     };
+    //     int n = 9;
         // v 완성.
         // cout << "완성" << endl;
         // for(int i=0; i<v.size(); i++) {
